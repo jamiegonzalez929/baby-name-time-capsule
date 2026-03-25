@@ -1,0 +1,23 @@
+{
+  "name": "baby-name-time-capsule",
+  "summary": "A static historical baby-name comparison site that lets you compare two eras, inspect top-name concentration, and see which names managed unusually long top-10 streaks using a bundled SSA-derived dataset.",
+  "category": "data-viz",
+  "tech_stack": [
+    "HTML",
+    "CSS",
+    "Vanilla JavaScript",
+    "Python 3",
+    "unittest",
+    "GitHub Pages"
+  ],
+  "test_commands": [
+    "python3 -m unittest discover -s tests -v"
+  ],
+  "run_commands": [
+    "python3 -m http.server 8000",
+    "python3 scripts/build_data.py --download"
+  ],
+  "github_repo": "jamiegonzalez929/baby-name-time-capsule",
+  "github_url": "https://github.com/jamiegonzalez929/baby-name-time-capsule",
+  "pages_url": ""
+}

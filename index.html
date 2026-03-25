@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Baby Name Time Capsule</title>
+    <meta
+      name="description"
+      content="Explore how top baby names changed across decades with a compact static visualization built from SSA-derived historical data."
+    >
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero">
+        <p class="eyebrow">Data viz · static site · local-first</p>
+        <h1>Baby Name Time Capsule</h1>
+        <p class="lede">
+          Compare two years of U.S. baby-name history, see which names held on,
+          and spot the eras when a name ruled the top 10.
+        </p>
+        <p class="source-note" id="source-note">Loading historical name data…</p>
+      </section>
+
+      <section class="panel controls" aria-label="comparison controls">
+        <div class="control-group">
+          <label for="sex-select">Name list</label>
+          <select id="sex-select">
+            <option value="girl">Girls</option>
+            <option value="boy">Boys</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="selected-year">Focus year</label>
+          <input id="selected-year" type="range">
+          <output id="selected-year-output" for="selected-year"></output>
+        </div>
+        <div class="control-group">
+          <label for="comparison-year">Comparison year</label>
+          <input id="comparison-year" type="range">
+          <output id="comparison-year-output" for="comparison-year"></output>
+        </div>
+      </section>
+
+      <section class="summary-grid" id="summary-grid" aria-label="summary cards"></section>
+
+      <section class="two-up">
+        <article class="panel">
+          <div class="section-heading">
+            <h2>Top names</h2>
+            <p id="top-list-caption">Top names for the selected year.</p>
+          </div>
+          <div id="top-list" class="ranked-list" aria-live="polite"></div>
+        </article>
+
+        <article class="panel">
+          <div class="section-heading">
+            <h2>Rank movement</h2>
+            <p id="movement-caption">How the top 10 shifted between the two years.</p>
+          </div>
+          <svg id="movement-chart" class="movement-chart" viewBox="0 0 700 420" role="img" aria-labelledby="movement-title"></svg>
+          <div id="movement-summary" class="movement-summary"></div>
+        </article>
+      </section>
+
+      <section class="two-up">
+        <article class="panel">
+          <div class="section-heading">
+            <h2>Longest top-10 streaks</h2>
+            <p>Some names barely moved for decades.</p>
+          </div>
+          <div id="streak-list" class="streak-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="section-heading">
+            <h2>How to read it</h2>
+            <p>The dataset is compact by design, so the interaction stays quick on GitHub Pages.</p>
+          </div>
+          <ul class="notes-list">
+            <li>The view shows the top 25 names for each year and sex.</li>
+            <li>The movement chart tracks only names that reached the top 10 in either year.</li>
+            <li>Percentages are shares of births for that sex in the selected year.</li>
+            <li>The mirrored source dataset in this project runs from 1880 through 2008.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
